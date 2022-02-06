@@ -1,3 +1,4 @@
+// function to signup
 async function signupFormHandler() {
     const username = document.querySelector('#username').value.trim();
     const email = document.querySelector('#email-signup').value.trim();

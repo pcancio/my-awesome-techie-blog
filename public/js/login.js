@@ -1,3 +1,4 @@
+// function to login
 async function loginFormHandler() {
     const username = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
