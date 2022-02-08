@@ -1,0 +1,17 @@
+body {
+    background-color: grey;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: lightblue;
+    color: black;
+}
+
+.main-title {
+    background-color: grey;
+    border-radius: .5rem;
+    box-shadow: 8px 8px 0 2px lightgray;
+    width: 20%;
+}
