@@ -1,0 +1,13 @@
+{{!-- layout for posts --}}
+<article class="post">
+    <div class="card mt-2">
+        <div class="bg-secondary p-1 text-dark">
+            <h4 class="card-title text-center"><a class= "text-dark text-uppercase" href="/post/{{id}}" target="_blank">{{title}}</a></h4>
+            <h5 class="text-end text-center">Created by {{user.username}} on {{format_date created_at}}</h5>
+        </div>
+        <div class="card-body text-center">
+            <p class="card-text">{{description}}</p>
+            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+    </div>
+</article>
