@@ -1,0 +1,40 @@
+{{!-- This is what the Edit Post page will look like --}}
+<section>
+    <a href="/dashboard"> &larr; Back to Dashboard</a>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="row align-items-center text-center">
+            <div class="col-12">
+                <h2>Edit Post</h2>
+            </div>
+            <div class="col-12">
+                <form class="edit-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Post Title</label>
+                        <input class="form-control" text="text" id="post-title" name="post-title" value="{{post.title}}"></input>
+                    </div>
+                     <div class="form-group">
+                        <label for="post-description">Post Description</label>
+                        <textarea class="form-control" text="text" id="post-description" name="post-description" value="{{post.title}}">{{post.description}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Save</button>
+                    <button type="button" class="delete-post-btn btn btn-primary mt-3">Delete</button>
+                </form>
+            </div>
+            <div class="col-12 mt-5">
+                <form class="comment-form">
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment-body"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mt-3">Comment</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 mt-5">
+                {{> comments post.comments}}
+        </div>
+    </div>
+    </div>
+</section>
+
+<script src="/js/edit-post.js"></script>
