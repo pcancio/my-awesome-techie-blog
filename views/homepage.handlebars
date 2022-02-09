@@ -1,0 +1,6 @@
+{{!-- this displays posts on the homepage --}}
+<div class="post-list container w-60 d-flex justify-content-center flex-column">
+    {{#each posts as |post|}}
+    {{> post-info post}}
+    {{/each}}
+</div>
