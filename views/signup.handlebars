@@ -1,0 +1,40 @@
+{{!-- this is what the signup page looks like --}}
+<section class="vh-75">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
+                            <p class="text-white-50 mb-5">Enter a username, email address, and password</p>
+                            {{!-- Enter a username --}}
+                              <div class="form-floating mb-4 text-dark">
+                                <input type="text" class="form-control" id="username" placeholder="username">
+                                <label for="username">Username</label>
+                            </div>
+                            {{!-- enter an email --}}
+                            <div class="form-floating mb-4 text-dark">
+                                <input type="email" class="form-control" id="email-signup" placeholder="user@email.com">
+                                <label for="email-signup">Email</label>
+                            </div>
+                            {{!-- enter a password --}}
+                            <div class="form-floating mb-4 text-dark">
+                                <input type="password" class="form-control" id="password-signup" placeholder="password">
+                                <label for="password-signup">Password</label>
+                            </div>
+                            {{!-- button to sign up and run sign up function --}}
+                            <button type="submit" class="btn btn-outline-light btn-lg px-5" onclick="signupFormHandler()">Sign me up</button>
+                        </div>
+                    </div>
+                    {{!-- link to login if already signed up --}}
+                    <p class="mb-0">Already signed up? <a href="/login" class="text-white-50 fw-bold">Log in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+<script src="/js/signup.js"></script>
