@@ -1,6 +1,8 @@
 // function to signup
-async function signupFormHandler() {
-    const username = document.querySelector('#username').value.trim();
+async function signupFormHandler(event) {
+    event.preventDefault();
+
+    const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#upassword-signup').value.trim();
 
@@ -22,3 +24,4 @@ async function signupFormHandler() {
         }
     }
 }
+document.querySelector('.signup-form').addEventListener('submit', signUpFormHandler);

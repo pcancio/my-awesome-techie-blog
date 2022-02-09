@@ -1,10 +1,16 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Post, Comment } = require('../models');
+const { User, Post, Comment, Vote } = require('../models');
 
+// get all posts for homepage
 router.get('/', (req, res) => {
     Post.findAll({
-            attributes: ['id', 'title', 'description', 'created_at'],
+            attributes: [
+                'id',
+                'title',
+                'post_body',
+                'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            ],
             include: [{
                     model: Comment,
                     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -32,12 +38,18 @@ router.get('/', (req, res) => {
         });
 });
 
+// get just one post "single-post"
 router.get('/post/:id', (req, res) => {
     Post.findOne({
             where: {
                 id: req.params.id
             },
-            attributes: ['id', 'description', 'title', 'created_at'],
+            attributes: [
+                'id',
+                'post_body',
+                'title',
+                'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            ],
             include: [{
                     model: Comment,
                     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -70,17 +82,12 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    console.log(req.session.loggedIn);
     if (req.session.loggedIn) {
-        res.redirect('/dashboard/');
+        res.redirect('/');
         return;
     }
     res.render('login');
 });
 
-router.get('/signup', (req, res) => {
-    console.log(req.session.loggedIn);
-    res.render('signup');
-})
 
 module.exports = router;
