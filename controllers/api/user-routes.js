@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment, Vote } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -34,9 +34,7 @@ router.get('/:id', (req, res) => {
                 },
                 {
                     model: Post,
-                    attributes: ['title'],
-                    through: Vote,
-                    as: 'voted_posts'
+                    attributes: ['title']
                 }
             ]
 
@@ -58,7 +56,7 @@ router.get('/:id', (req, res) => {
 // create a new user
 router.post('/', async(req, res) => {
     User.create({
-            usermame: req.body.username,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password
         })

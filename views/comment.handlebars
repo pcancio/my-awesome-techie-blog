@@ -1,6 +1,6 @@
 {{!-- This is what the comment page will look like --}}
 <div class="container d-flex flex-column justify-content-center">
-    {{> post-info post}
+    {{> post-info post}}
     {{#if loggedIn}}
     <div class="comment-form">
         <h2>Add a Comment</h2>
@@ -10,7 +10,6 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary mt-3">Comment</button>
-                 <button type="button" class="upvote-btn">upvote</button>
             </div>
         </form>
     </div>
@@ -19,5 +18,4 @@
 </div>
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
 {{/if}}
