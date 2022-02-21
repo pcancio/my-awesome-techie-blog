@@ -1,3 +1,6 @@
+## Description
+A blog for techies to come together and talk about tech 
+
 ## User Story
 
 A developer who writes about tech<br>
